@@ -1,5 +1,4 @@
 #!/bin/python
-#PDF Reader
 import PyPDF2
 import os
 from gtts import gTTS
@@ -18,11 +17,9 @@ f = open(file_path, 'rb')
 pdffile = PyPDF2.PdfFileReader(f)
 no_of_pages = pdffile.getNumPages()
 
-# Iterate all the pages
- 
-# Using regex to filter only words and numbers
- 
-# Concatenate the words in each page
+# iterate all the pages
+# use regex to filter only words and numbers
+# concatenate the words in each page
  
 string_words = ''
 for pageno in range(no_of_pages):
@@ -33,7 +30,7 @@ for pageno in range(no_of_pages):
     for word in textonly:
         string_words = string_words + ' ' + word
  
-# Convert the string of words to mp3 file 
+# convert string of words to mp3 file 
 print(string_words)
 tts = gTTS(text=string_words, lang='en')
 tts.save("listen_pdf.mp3")
